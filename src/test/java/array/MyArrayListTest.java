@@ -2,6 +2,7 @@ package array;
 
 import com.sidd.ds.array.MyArrayList;
 
+import com.sidd.ds.array.MyList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class MyArrayListTest {
     @Test
     public void test()
     {
-        MyArrayList arrayList = new MyArrayList(10);
+        MyList arrayList = new MyArrayList(10);
         for(int c = 1; c <= 5; c++)
         {
             arrayList.insert(c);
