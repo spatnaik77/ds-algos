@@ -99,4 +99,20 @@ public class MyLinkedList {
         }
         System.out.println("----------------|");
     }
+
+    public Link getFirst() {
+        return first;
+    }
+
+    public Link getLast() {
+        return last;
+    }
+
+    public void removeFirst()
+    {
+        Link newFirst = first.getNext();
+        first = newFirst;
+    }
+
+
 }
