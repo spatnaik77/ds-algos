@@ -1,4 +1,4 @@
-package array;
+package linkedlist;
 
 import com.sidd.ds.array.MyArrayList;
 import com.sidd.ds.array.MyList;
