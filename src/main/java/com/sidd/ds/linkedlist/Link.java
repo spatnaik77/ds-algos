@@ -1,20 +1,20 @@
 package com.sidd.ds.linkedlist;
 
-public class Link {
+public class Link<T> {
 
-    private int data;
-    private Link next;
+    private T data;
+    private Link<T> next;
 
-    public Link(int data)
+    public Link(T data)
     {
         this.data = data;
     }
 
-    public int getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 

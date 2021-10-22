@@ -1,6 +1,7 @@
 package stack;
 
-import com.sidd.ds.stack.MyStack;
+import com.sidd.ds.stack.MyStackBackedByLinkedList;
+import com.sidd.ds.stack.MyStackBackedByArray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ public class MyStackTest {
     @Test
     public void test()
     {
-        MyStack stack = new MyStack();
+        MyStackBackedByLinkedList stack = new MyStackBackedByLinkedList();
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -19,4 +20,16 @@ public class MyStackTest {
         Assertions.assertEquals(1, stack.pop());
     }
 
+    @Test
+    public void testStackBackedByArray()
+    {
+        MyStackBackedByArray stack = new MyStackBackedByArray(10);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        Assertions.assertEquals(3, stack.peek());
+        Assertions.assertEquals(3, stack.pop());
+        Assertions.assertEquals(2, stack.pop());
+        Assertions.assertEquals(1, stack.pop());
+    }
 }

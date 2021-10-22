@@ -2,12 +2,12 @@ package com.sidd.ds.linkedlist;
 
 import com.sidd.ds.array.MyList;
 
-public class MyLinkedList {
+public class MyLinkedList<T> {
 
-    private Link first;
-    private Link last;
+    private Link<T> first;
+    private Link<T> last;
 
-    public void insert(int val)
+    public void insert(T val)
     {
         if(first == null)
         {
@@ -22,7 +22,7 @@ public class MyLinkedList {
             last = l;
         }
     }
-    public void insertAtBegining(int val)
+    public void insertAtBegining(T val)
     {
         if(first == null)
         {
@@ -37,7 +37,7 @@ public class MyLinkedList {
             first = l;
         }
     }
-    public void insertAtLast(int val)
+    public void insertAtLast(T val)
     {
         if(first == null)
         {
@@ -49,9 +49,10 @@ public class MyLinkedList {
         {
             Link l = new Link(val);
             last.setNext(l);
+            last = l;
         }
     }
-    public boolean find(long val)
+    public boolean find(T val)
     {
         boolean result = false;
         Link curr = first;
@@ -69,7 +70,7 @@ public class MyLinkedList {
         }
         return result;
     }
-    public void delete(long val)
+    public void delete(T val)
     {
         //find the link. Maintain a variable for prev link
         Link curr = first;
