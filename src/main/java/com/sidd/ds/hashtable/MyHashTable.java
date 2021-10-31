@@ -14,6 +14,10 @@ public class MyHashTable<K, V>
     }
     public void put(K k, V v)
     {
+        if(currentSize == capacity)
+        {
+            rehash();
+        }
         int index = k.hashCode() % capacity;
         HashEntry<K, V> newEntry = new HashEntry<>(k, v);
         HashEntry<K, V> targetEntry = data[index];
@@ -24,12 +28,13 @@ public class MyHashTable<K, V>
                 targetEntry = targetEntry.getNext();
             }
             targetEntry.setNext(newEntry);
-            currentSize++;
+
         }
         else
         {
             data[index] = newEntry;
         }
+        currentSize++;
     }
     public V get(K k)
     {
@@ -60,8 +65,29 @@ public class MyHashTable<K, V>
             return null;
         }
     }
+    public int getCurrentSize()
+    {
+        return this.currentSize;
+    }
     private void rehash()
     {
+        this.capacity = capacity * 2;
+        this.currentSize = 0;
+        HashEntry<K, V>[] dataX = data;
+        data = new HashEntry[capacity];
+        for(int c = 0; c < dataX.length; c++)
+        {
+            HashEntry<K, V> entry = dataX[c];
+            if(entry != null)
+            {
+                this.put(entry.getK(), entry.getV());
+                while(entry.getNext() != null)
+                {
+                    entry = entry.getNext();
+                    this.put(entry.getK(), entry.getV());
+                }
+            }
 
+        }
     }
 }

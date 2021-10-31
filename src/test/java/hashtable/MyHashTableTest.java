@@ -20,11 +20,24 @@ public class MyHashTableTest {
     public void test2()
     {
         MyHashTable<Integer, String> hashTable = new MyHashTable<>(5);
-        for(int c = 1; c <= 10; c++)
+        for(int c = 1; c <= 20; c++)
         {
             hashTable.put(c, "" + c);
             Assertions.assertEquals(""+c, hashTable.get(c));
         }
+        Assertions.assertEquals(20, hashTable.getCurrentSize());
+
+        Assertions.assertEquals(""+5, hashTable.get(5));
+        Assertions.assertEquals(""+15, hashTable.get(15));
+        Assertions.assertEquals(""+20, hashTable.get(20));
+
+        for(int c = 21; c <= 50; c++)
+        {
+            hashTable.put(c, "" + c);
+            Assertions.assertEquals(""+c, hashTable.get(c));
+        }
+        Assertions.assertEquals(50, hashTable.getCurrentSize());
+
     }
 
 }
