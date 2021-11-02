@@ -5,6 +5,7 @@ import com.sidd.ds.linkedlist.MyLinkedList;
 public class MyQueueBackedByLinkedList<T>
 {
     MyLinkedList<T> linkedList;
+    int size = 0;
 
     public MyQueueBackedByLinkedList()
     {
@@ -13,6 +14,7 @@ public class MyQueueBackedByLinkedList<T>
     public void insert(T val)
     {
         linkedList.insertAtLast(val);
+        ++size;
     }
     public T peek()
     {
@@ -23,7 +25,12 @@ public class MyQueueBackedByLinkedList<T>
     {
         T ret = (T)linkedList.getFirst().getData();
         linkedList.removeFirst();
+        --size;
         return ret;
+    }
+
+    public int getSize() {
+        return size;
     }
 
 }
