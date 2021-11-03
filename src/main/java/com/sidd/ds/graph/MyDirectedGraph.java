@@ -8,19 +8,19 @@ import java.util.*;
 
 public class MyDirectedGraph {
 
-    private Map<Integer, List<Node>> graph;
+    private Map<Node, List<Node>> graph;
 
     public MyDirectedGraph()
     {
-        graph = new HashMap<Integer, List<Node>>();
+        graph = new HashMap<Node, List<Node>>();
     }
     public void addEdge(Node source, Node target)
     {
-        List<Node> adj = graph.get(source.getId());
+        List<Node> adj = graph.get(source);
         if(adj == null)
         {
             adj = new ArrayList<>();
-            graph.put(source.getId(), adj);
+            graph.put(source, adj);
             adj.add(target);
         }
         else
@@ -43,7 +43,7 @@ public class MyDirectedGraph {
                 //System.out.print(n + "-->");
                 result.append(n.getId());
                 n.setVisited(true);
-                List<Node> adjList = graph.get(n.getId());
+                List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
                     for (Node nn : adjList)
@@ -70,13 +70,13 @@ public class MyDirectedGraph {
             //Visit
             if(! n.isVisited())
             {
-                if(target.getId() == n.getId())
+                if(target == n)
                 {
                     isConnected = true;
                     break;
                 }
                 n.setVisited(true);
-                List<Node> adjList = graph.get(n.getId());
+                List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
                     for (Node nn : adjList)
@@ -136,7 +136,7 @@ public class MyDirectedGraph {
                 //System.out.print(n + "-->");
                 result.append(n.getId());
                 n.setVisited(true);
-                List<Node> adjList = graph.get(n.getId());
+                List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
                     for (Node nn : adjList)
@@ -163,7 +163,7 @@ public class MyDirectedGraph {
             System.out.print(n + "-->");
             result.append(n.getId());
             n.setVisited(true);
-            List<Node> adjList = graph.get(n.getId());
+            List<Node> adjList = graph.get(n);
             if(adjList != null)
             {
                 for (Node nn : adjList)
