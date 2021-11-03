@@ -1,6 +1,6 @@
 package graph;
 
-import com.sidd.ds.graph.MyGraph;
+import com.sidd.ds.graph.MyDirectedGraph;
 import com.sidd.ds.graph.Node;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,9 +8,10 @@ import org.junit.jupiter.api.Test;
 public class MyGraphTest {
 
     @Test
-    public void testBreadthFirstSearch()
+    public void testSearch()
     {
-        MyGraph graph = new MyGraph();
+        //See graph1.png
+        MyDirectedGraph graph = new MyDirectedGraph();
         Node n0 = new Node(0);
         Node n1 = new Node(1);
         Node n2 = new Node(2);
@@ -27,16 +28,25 @@ public class MyGraphTest {
         graph.addEdge(n1, n2);
         graph.addEdge(n5, n6);
 
+
         System.out.println("-------Breadth first search---------");
-        graph.breadthFirstSearch(n0);
+        Assertions.assertEquals("0134256", graph.breadthFirstSearch(n0));
 
         System.out.println("");
         System.out.println("-------Depth first search-----------");
-        graph.depthFirstSearch(n0);
+        Assertions.assertEquals("0456312", graph.depthFirstSearch(n0));
 
+        System.out.println("");
+        System.out.println("-------Depth first search using recursion-----------");
+        Assertions.assertEquals("0123564", graph.depthFirstSearchUsingRecursion(n0));
 
+        // *********IsConnected()*************************
+        Assertions.assertTrue(graph.isConnected(n0, n1));
+        Assertions.assertTrue(graph.isConnected(n0, n2));
+        Assertions.assertTrue(graph.isConnected(n4, n6));
+        Assertions.assertFalse(graph.isConnected(n1, n6));
+        Assertions.assertFalse(graph.isConnected(n2, n6));
 
+        //System.out.println(graph.getShortestPath(n0, n6));
     }
-
-
 }
