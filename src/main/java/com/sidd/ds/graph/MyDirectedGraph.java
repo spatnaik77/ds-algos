@@ -1,7 +1,6 @@
 package com.sidd.ds.graph;
 
 import com.sidd.ds.queue.MyQueueBackedByLinkedList;
-import com.sidd.ds.stack.MyStackBackedByArray;
 import com.sidd.ds.stack.MyStackBackedByLinkedList;
 
 import java.util.*;
@@ -21,7 +20,9 @@ public class MyDirectedGraph {
         {
             adj = new ArrayList<>();
             graph.put(source, adj);
-            adj.add(target);
+            if(target != null) {
+                adj.add(target);
+            }
         }
         else
         {
@@ -31,6 +32,7 @@ public class MyDirectedGraph {
     public String breadthFirstSearch(Node start)
     {
         StringBuffer result = new StringBuffer();
+        List<Node> visitedList = new ArrayList<Node>();
 
         MyQueueBackedByLinkedList<Node> queue = new MyQueueBackedByLinkedList<Node>();
         queue.insert(start);
@@ -38,11 +40,11 @@ public class MyDirectedGraph {
         {
             Node n = queue.poll();
             //Visit
-            if(! n.isVisited())
+            if(!visitedList.contains(n))
             {
                 //System.out.print(n + "-->");
                 result.append(n.getId());
-                n.setVisited(true);
+                visitedList.add(n);
                 List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
@@ -53,7 +55,6 @@ public class MyDirectedGraph {
                 }
             }
         }
-        reset(start);
         return result.toString();
     }
     /*
@@ -61,6 +62,7 @@ public class MyDirectedGraph {
      */
     public boolean isConnected(Node source, Node target)
     {
+        List<Node> visitedList = new ArrayList<Node>();
         boolean isConnected = false;
         MyQueueBackedByLinkedList<Node> queue = new MyQueueBackedByLinkedList<Node>();
         queue.insert(source);
@@ -68,14 +70,14 @@ public class MyDirectedGraph {
         {
             Node n = queue.poll();
             //Visit
-            if(! n.isVisited())
+            if(!visitedList.contains(n))
             {
                 if(target == n)
                 {
                     isConnected = true;
                     break;
                 }
-                n.setVisited(true);
+                visitedList.add(n);
                 List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
@@ -86,43 +88,11 @@ public class MyDirectedGraph {
                 }
             }
         }
-        reset(source);
         return isConnected;
     }
-    /*public String getShortestPath(Node source, Node target)
+    public String depthFirstSearchUsingStack(Node start)
     {
-        StringBuffer result = new StringBuffer();
-
-        MyQueueBackedByLinkedList<Node> queue = new MyQueueBackedByLinkedList<Node>();
-        queue.insert(source);
-        while(queue.getSize() > 0)
-        {
-            Node n = queue.poll();
-            //Visit
-            if(! n.isVisited())
-            {
-                result.append(n.getId());
-                if(n.getId() == target.getId())
-                {
-                    break;
-                }
-                n.setVisited(true);
-                List<Node> adjList = graph.get(n.getId());
-                if(adjList != null)
-                {
-                    for (Node nn : adjList)
-                    {
-                        queue.insert(nn);
-                    }
-                }
-            }
-        }
-        reset(source);//reset all the nodes with visited to false
-        return result.toString();
-    }*/
-
-    public String depthFirstSearch(Node start)
-    {
+        List<Node> visitedList = new ArrayList<Node>();
         StringBuffer result = new StringBuffer();
 
         MyStackBackedByLinkedList<Node> stack = new MyStackBackedByLinkedList();
@@ -131,11 +101,11 @@ public class MyDirectedGraph {
         {
             Node n = stack.pop();
             //Visit
-            if(! n.isVisited())
+            if(!visitedList.contains(n))
             {
                 //System.out.print(n + "-->");
                 result.append(n.getId());
-                n.setVisited(true);
+                visitedList.add(n);
                 List<Node> adjList = graph.get(n);
                 if(adjList != null)
                 {
@@ -146,50 +116,60 @@ public class MyDirectedGraph {
                 }
             }
         }
-        reset(start);
         return result.toString();
     }
-    public String depthFirstSearchUsingRecursion(Node start)
+    public String depthFirstSearch(Node start)
     {
+        List<Node> visitedList = new ArrayList<Node>();
         StringBuffer result = new StringBuffer();
-        depthFirstSearchUsingRecursionUtil(start, result);
-        reset(start);//reset all the nodes with visited to false
+        depthFirstSearchRecursionInternal(start, result, visitedList);
         return result.toString();
     }
-    private void depthFirstSearchUsingRecursionUtil(Node n, StringBuffer result)
+    private void depthFirstSearchRecursionInternal(Node n, StringBuffer result, List<Node> visitedList)
     {
-        if(! n.isVisited())
+        if(!visitedList.contains(n))
         {
-            System.out.print(n + "-->");
+            //System.out.print(n + "-->");
             result.append(n.getId());
-            n.setVisited(true);
+            visitedList.add(n);
             List<Node> adjList = graph.get(n);
             if(adjList != null)
             {
                 for (Node nn : adjList)
                 {
-                    depthFirstSearchUsingRecursionUtil(nn, result);
+                    depthFirstSearchRecursionInternal(nn, result, visitedList);
                 }
             }
         }
     }
-    public String topologicalSort()
-    {
-        return null;
-    }
 
-    private void reset(Node start)
+    public String topologicalSort(Node start)
     {
-        start.setVisited(false);
-        Collection<List<Node>> data = graph.values();
-        for(List<Node> l : data)
+        StringBuffer result = new StringBuffer();
+        List<Node> visitedList = new ArrayList<Node>();
+        Stack<Node> resultStack = new Stack<>();
+        topologicalInternal(start, visitedList, resultStack);
+
+        while(!resultStack.isEmpty())
         {
-            for(Node n : l)
+            result.append(resultStack.pop().getId());
+        }
+        return result.toString();
+    }
+    public void topologicalInternal(Node node, List<Node> visitedList, Stack<Node> stack)
+    {
+        visitedList.add(node);
+        List<Node> adjList = graph.get(node);
+        if(adjList != null)
+        {
+            for (Node n : adjList)
             {
-                n.setVisited(false);
+                if(!visitedList.contains(n))
+                {
+                    topologicalInternal(n, visitedList, stack);
+                }
             }
         }
+        stack.push(node);
     }
-
-
 }
