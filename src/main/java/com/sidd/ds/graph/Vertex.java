@@ -3,12 +3,12 @@ package com.sidd.ds.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Vertex {
 
     private int id;
 
 
-    public Node(int id) {
+    public Vertex(int id) {
         this.id = id;
     }
 
