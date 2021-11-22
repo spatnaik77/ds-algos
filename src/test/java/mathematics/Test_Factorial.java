@@ -14,4 +14,11 @@ public class Test_Factorial
         Assertions.assertEquals(2, Factorial.factorial(2));
         Assertions.assertEquals(1, Factorial.factorial(1));
     }
+    @Test
+    public void testResursive()
+    {
+        Assertions.assertEquals(120, Factorial.factorial_recursive(5));
+        Assertions.assertEquals(2, Factorial.factorial_recursive(2));
+        Assertions.assertEquals(1, Factorial.factorial_recursive(1));
+    }
 }
