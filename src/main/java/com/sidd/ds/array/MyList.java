@@ -1,13 +1,28 @@
 package com.sidd.ds.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public interface MyList {
 
-    public boolean find(long val);
+    public boolean contains(long val); //Done
 
-    public void insert(long val);
+    public void add(long val);//Done
 
-    public void delete(long val);
+    public void add(int index, long val);
 
-    public void print();
+    public long get(int index);//done
+
+    public int indexOf(long val);//done
+
+    public int lastIndexOf(long val);//done
+
+    public void removeAtIndex(int index);
+
+    public void remove(long val);
+
+    public int size();//done
+
+    public void print();//done
 
 }

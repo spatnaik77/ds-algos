@@ -1,7 +1,5 @@
 package linkedlist;
 
-import com.sidd.ds.array.MyArrayList;
-import com.sidd.ds.array.MyList;
 import com.sidd.ds.linkedlist.MyLinkedList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
