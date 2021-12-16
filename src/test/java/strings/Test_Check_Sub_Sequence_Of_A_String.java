@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Check_Sub_Sequence_Of_A_String {
 
     @Test
-    public void test()
+    public void testCheck_Sub_Sequence_Of_A_String()
     {
         Assertions.assertTrue(Check_Sub_Sequence_Of_A_String.is_Sub_Sequence("abcde", "ab"));
         Assertions.assertTrue(Check_Sub_Sequence_Of_A_String.is_Sub_Sequence("abcde", "ae"));

@@ -10,7 +10,7 @@ import java.util.List;
 public class Test_Pattern_Matching {
 
     @Test
-    public void test_naive()
+    public void testPatternMatchingNaive()
     {
         //Input: ABABANCD, Pattern: ABAB,  Result: 0, 2
         List<Integer> result = Pattern_Matching_Naive.matchPattern("ABABABCD", "ABAB");

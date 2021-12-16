@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Pair_With_Given_Sum {
 
     @Test
-    public void test()
+    public void testContainsPairWithGivenSum()
     {
         int[] data = { 1, 3, 5, 7};
 

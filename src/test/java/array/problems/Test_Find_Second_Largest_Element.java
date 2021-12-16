@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Find_Second_Largest_Element {
 
     @Test
-    public void test()
+    public void testFindSecondLargestElement()
     {
         int[] input1 = {1, 30, 9, 100, 12};
         Assertions.assertEquals(30, Find_Second_Largest_Element.findSecondLargestElement(input1));

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_LeftMost_Non_Repeating_Char {
 
     @Test
-    public void test() {
+    public void testLeftMost_Non_Repeating_Char() {
 
         Assertions.assertEquals(5, LeftMost_Non_Repeating_Char.getIndexOfLeftMostNonRepeatingChar("geeksforgeeks"));
 

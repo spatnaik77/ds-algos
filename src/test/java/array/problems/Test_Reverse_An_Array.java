@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Reverse_An_Array {
 
     @Test
-    public void test()
+    public void testReverseAnArray()
     {
         int[] input1 = {1, 2, 3 ,4};
         int[] output1 = Reverse_An_Array.reverse(input1); //{ 4, 3, 2, 1}

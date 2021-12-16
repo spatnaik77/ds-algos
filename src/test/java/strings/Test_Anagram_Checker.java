@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Anagram_Checker {
 
     @Test
-    public void test()
+    public void testCheckAnagram()
     {
         Assertions.assertTrue(Anagram_Checker.isAnagram_sol1("listen", "silent"));
         Assertions.assertTrue(Anagram_Checker.isAnagram_sol1("elbow", "below"));

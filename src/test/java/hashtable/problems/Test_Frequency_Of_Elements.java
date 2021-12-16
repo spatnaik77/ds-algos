@@ -9,7 +9,7 @@ import java.util.Map;
 public class Test_Frequency_Of_Elements {
 
     @Test
-    public void test()
+    public void testFrequencyOfElements()
     {
         int[] data = {10, 20, 30, 30, 40};
         Map<Integer, Integer> result = Frequency_Of_Elements.frequencyOfElement(data);

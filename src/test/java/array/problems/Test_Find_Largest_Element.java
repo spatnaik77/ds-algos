@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Find_Largest_Element {
 
     @Test
-    public void test()
+    public void testFindLargestElement()
     {
         int[] input1 = {1, 30, 9, 100, 12};
         Assertions.assertEquals(100, Find_Largest_Element.findLargestElement(input1));

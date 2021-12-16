@@ -2,19 +2,23 @@ package com.sidd.ds.stack.problems;
 
 import com.sidd.ds.stack.MyStackBackedByLinkedList;
 
+import java.util.LinkedList;
+import java.util.Stack;
+
 public class BalancedParanthesis {
 
     public static void main(String[] args)
     {
        //Should return True
-        System.out.println(check("{([])}"));
+        System.out.println(checkBalancedParanthesis("{([])}"));
         //Should return false
-        System.out.println(check("{([]})"));
+        System.out.println(checkBalancedParanthesis("{([]})"));
     }
-    public static boolean check(String input)
+    public static boolean checkBalancedParanthesis(String input)
     {
         boolean result = true;
-        MyStackBackedByLinkedList<Character> stack = new MyStackBackedByLinkedList<>();
+        Stack<Character> stack = new Stack();
+        //MyStackBackedByLinkedList<Character> stack = new MyStackBackedByLinkedList<>();
         char[] chars = input.toCharArray();
         for(int c = 0; c < chars.length; c++)
         {
@@ -30,7 +34,12 @@ public class BalancedParanthesis {
                     stack.push(chars[c]);
                     break;
                 case '}':
-                    if('{' != stack.pop())
+                    if(!stack.isEmpty()) {
+                        if ('{' != stack.pop()) {
+                            result = false;
+                        }
+                    }
+                    else
                     {
                         result = false;
                     }
@@ -48,6 +57,10 @@ public class BalancedParanthesis {
                     }
                     break;
             }
+        }
+        if(!stack.isEmpty())
+        {
+            result = false;
         }
         return result;
     }

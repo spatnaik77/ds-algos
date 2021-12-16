@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Left_Rotate_An_Array {
 
     @Test
-    public void test()
+    public void testLeftRorateByPosition1()
     {
         int[] input1 = {1, 2, 3 ,4};
         int[] output1 = Left_Rotate_An_Array.leftRotate(input1); //Expected: { 2, 3, 4, 1}
@@ -16,7 +16,7 @@ public class Test_Left_Rotate_An_Array {
         Assertions.assertEquals(1, output1[3]);
     }
     @Test
-    public void testLeftRorateByPosition()
+    public void testLeftRorateByPosition2()
     {
         int[] input1 = {1, 2, 3 ,4};
         int[] output1 = Left_Rotate_An_Array.leftRotate(input1, 2); //Expected: { 3, 4, 1, 2}

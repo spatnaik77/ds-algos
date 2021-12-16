@@ -9,7 +9,7 @@ import java.util.List;
 public class Test_Find_Leaders_In_Array {
 
     @Test
-    public void test_naive_solution()
+    public void testFindLeadersNaive()
     {
         int[] input = { 2 , 25, 9, 4, 13, 8 } ;
         List<Integer> resust = Find_Leaders_In_Array.findLeaders_Naive_Solution(input);
@@ -20,7 +20,7 @@ public class Test_Find_Leaders_In_Array {
         Assertions.assertEquals(8, resust.get(2));
     }
     @Test
-    public void test_optimised_solution()
+    public void testFindLeadersOptimised()
     {
         int[] input = { 2 , 25, 9, 4, 13, 8 } ;
         List<Integer> resust = Find_Leaders_In_Array.findLeaders_Optimised_Solution(input);

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Window_Sliding_Technique {
 
     @Test
-    public void test_naive()
+    public void testWindowSlidingNaive()
     {
         int[] input1 = {1, 8, 30, -5, 20, 7};
         Assertions.assertEquals(45, Window_Sliding_Technique.getMaximumSum_Naive(input1, 3));
@@ -17,7 +17,7 @@ public class Test_Window_Sliding_Technique {
 
     }
     @Test
-    public void test_optimised()
+    public void testWindowSlidingOptimised()
     {
         int[] input1 = {1, 8, 30, -5, 20, 7};
         Assertions.assertEquals(45, Window_Sliding_Technique.getMaximumSum_Optimised(input1, 3));

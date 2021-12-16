@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class MyQueueTest {
 
     @Test
-    public void test()
+    public void testMyQueueBackedByLinkedList()
     {
         MyQueueBackedByLinkedList queue = new MyQueueBackedByLinkedList();
         queue.insert(1);

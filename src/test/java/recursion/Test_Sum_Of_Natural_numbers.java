@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Sum_Of_Natural_numbers {
 
     @Test
-    public void test()
+    public void testSumOfNaturalNumbers()
     {
         Assertions.assertEquals(15, Sum_Of_Natural_Numbers.sum_recursive(5));
 

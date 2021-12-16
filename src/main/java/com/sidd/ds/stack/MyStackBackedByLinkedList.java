@@ -19,10 +19,14 @@ public class MyStackBackedByLinkedList<T> {
     }
     public T pop()
     {
-        T ret = (T)linkedList.getFirst().getData();
-        linkedList.removeFirst();
-        --size;
-        return ret;
+        if(linkedList.getFirst() != null) {
+            T ret = (T) linkedList.getFirst().getData();
+            linkedList.removeFirst();
+            --size;
+            return ret;
+        }
+        else
+            return null;
     }
     public T peek()
     {

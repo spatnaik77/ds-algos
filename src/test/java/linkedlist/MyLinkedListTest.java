@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MyLinkedListTest {
 
     @Test
-    public void test()
+    public void testMyLinkedListTest()
     {
         MyLinkedList myLinkedList = new MyLinkedList();
         for(int c = 1; c <= 5; c++)

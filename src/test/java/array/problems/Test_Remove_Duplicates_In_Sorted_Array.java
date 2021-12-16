@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Test_Remove_Duplicates_In_Sorted_Array
 {
     @Test
-    public void test()
+    public void testRemoveDuplicatesInSortedArray()
     {
         int[] input = {10, 20, 20, 20, 30};
         int[] output = Remove_Duplicates_In_Sorted_Array.removeDuplicates(input);
