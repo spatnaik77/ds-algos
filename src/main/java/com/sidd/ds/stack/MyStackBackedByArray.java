@@ -1,12 +1,10 @@
 package com.sidd.ds.stack;
 
-import com.sidd.ds.linkedlist.MyLinkedList;
-
 //Stack backed by an array
 public class MyStackBackedByArray {
 
     int[] array;
-    int nElements = -1;
+    int top = -1;
 
     public MyStackBackedByArray(int capacity)
     {
@@ -14,17 +12,17 @@ public class MyStackBackedByArray {
     }
     public void push(int val)
     {
-        ++nElements;
-        array[nElements] = val;
+        ++top;
+        array[top] = val;
     }
     public int pop()
     {
-        int val = array[nElements];
-        nElements--;
+        int val = array[top];
+        top--;
         return val;
     }
     public int peek()
     {
-        return array[nElements];
+        return array[top];
     }
 }

@@ -1,4 +1,6 @@
-package com.sidd.ds.stack;
+package com.sidd.ds.stack.problems;
+
+import com.sidd.ds.stack.MyStackBackedByLinkedList;
 
 import java.util.Arrays;
 

@@ -6,4 +6,4 @@
 * Graph       - 60%
 * Hashing     - 80%
 * Binary Search- 80%
-* Strings     -  0%
+* Strings     -  70%
