@@ -1,6 +1,8 @@
-package com.sidd.ds.stack;
+package com.sidd.ds.stack.problems;
 
-public class BracketChecker {
+import com.sidd.ds.stack.MyStackBackedByLinkedList;
+
+public class BalancedParanthesis {
 
     public static void main(String[] args)
     {
@@ -19,9 +21,11 @@ public class BracketChecker {
             switch(chars[c])
             {
                 case '{':
-                    //stack.push(chars[c]);
+                    stack.push(chars[c]);
+                    break;
                 case '(':
-                    //stack.push(chars[c]);
+                    stack.push(chars[c]);
+                    break;
                 case '[':
                     stack.push(chars[c]);
                     break;

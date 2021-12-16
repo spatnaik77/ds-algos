@@ -1,4 +1,4 @@
-package com.sidd.ds.stack;
+package com.sidd.ds.stack.problems;
 
 public class ArithmaticExpressionEvaluator {
 }
