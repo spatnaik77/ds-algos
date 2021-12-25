@@ -5,7 +5,7 @@ import com.sidd.ds.stack.MyStackBackedByLinkedList;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class BalancedParanthesis {
+public class Balanced_Paranthesis {
 
     public static void main(String[] args)
     {
@@ -64,4 +64,5 @@ public class BalancedParanthesis {
         }
         return result;
     }
+
 }

@@ -4,7 +4,7 @@ import com.sidd.ds.stack.MyStackBackedByLinkedList;
 
 import java.util.Arrays;
 
-public class StringReverser {
+public class String_Reverser {
 
     public static void main(String args[])
     {
